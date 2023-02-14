@@ -7,4 +7,13 @@ export class ProductRepository {
       price: price,
     });
   }
+
+  async listAllProducts() {
+    const allProducts = await product.findAll({
+      raw: true,
+      order: [["id", "DESC"]],
+    });
+
+    return allProducts;
+  }
 }

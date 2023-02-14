@@ -3,7 +3,7 @@ import { connection } from "../database/database";
 
 export const product = connection.define("products", {
   name: {
-    type: DataTypes.CHAR,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
   price: {
