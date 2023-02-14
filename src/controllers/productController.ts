@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { ProductRepository } from "../repositories/productRepository";
+import { getRedis, setRedis } from "../redisConfig";
 
 export class ProductController {
   async saveProduct(request: Request, response: Response) {
@@ -12,6 +13,7 @@ export class ProductController {
     const productRepository = new ProductRepository();
 
     await productRepository.saveProduct(name, price);
+    await setRedis("listAllProducts", "");
 
     return response.status(201).send();
   }
@@ -19,7 +21,15 @@ export class ProductController {
   async listAllProducts(request: Request, response: Response) {
     const productRepository = new ProductRepository();
 
+    const data = await getRedis("listAllProducts");
+
+    if (data) {
+      return response.json(JSON.parse(data));
+    }
+
     const products = await productRepository.listAllProducts();
+    await setRedis("listAllProducts", JSON.stringify(products));
+
     return response.json(products);
   }
 }

@@ -13,7 +13,6 @@ export class ProductRepository {
       raw: true,
       order: [["id", "DESC"]],
     });
-
     return allProducts;
   }
 }
