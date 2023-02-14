@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  database:
+    image: postgres
+    container_name: database_application
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=adminredis
+    volumes:
+      - pgdata:/data/postgres
+
+  aplicacao:
+    build: .
+    container_name: redis_app
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app
+
+volumes:
+  pgdata:
+    driver: local
