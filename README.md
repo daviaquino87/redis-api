@@ -30,9 +30,6 @@ Para fazer o deploy desse projeto rode
   sudo docker-compose up
 ```
 
-## Test
- Acesse localhost:3000 para testar sua aplicacão.
-
 ## Documentação da API
 
 #### Salvar novo produto
