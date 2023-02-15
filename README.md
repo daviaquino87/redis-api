@@ -22,18 +22,6 @@ Instale RedisApi com os seguintes comandos :
     npm i
 ```
 
-## Variáveis de Ambiente
-
-Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
-
-`DB_HOST`
-
-`DB_USER`
-
-`DB_PASS`
-
-`DB_DATABASE`
-
 ## Deploy
 
 Para fazer o deploy desse projeto rode
@@ -41,6 +29,9 @@ Para fazer o deploy desse projeto rode
 ```bash
   sudo docker-compose up
 ```
+
+## Test
+ Acesse localhost:3000 para testar sua aplicacão.
 
 ## Documentação da API
 
